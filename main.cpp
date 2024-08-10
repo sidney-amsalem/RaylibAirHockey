@@ -76,8 +76,8 @@ int main(){
     Player player1 = Player::CreateLeftPlayer(screenWidth, screenHeight);
     Player player2 = Player::CreateRightPlayer(screenWidth, screenHeight);
     Puck puck = Puck(screenWidth, screenHeight);
-    Rectangle goalLeft = {0, (float)(screenHeight-150)/2, 20.0f, 150.0f};
-    Rectangle goalRight = {screenWidth-20.0f, (float)(screenHeight-150)/2, 20.0f, 150.0f};
+    Rectangle goalLeft = {0, (float)(screenHeight-170)/2, 30.0f, 170.0f};
+    Rectangle goalRight = {screenWidth-20.0f, (float)(screenHeight-170)/2, 30.0f, 170.0f};
 
     int leftScore, rightScore;
 

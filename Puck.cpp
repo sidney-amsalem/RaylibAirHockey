@@ -5,7 +5,7 @@
 #include "Puck.h"
 
 Puck::Puck(const int screenWidth, const int screenHeight)
-        : GameObject(screenWidth, screenHeight, {(float)screenWidth/2,(float)screenHeight/2}, 50, 3, 0.995, BLACK)
+        : GameObject(screenWidth, screenHeight, {(float)screenWidth/2,(float)screenHeight/2}, 50, 3, 0.99, BLACK)
 {}
 
 void Puck::update() {

@@ -12,7 +12,7 @@ Player Player::CreateRightPlayer(const int screenWidth, const int screenHeight) 
 }
 
 Player::Player(const int screenWidth, const int screenHeight, const Color color, const SpawnLocation spawnLocation)
-        : GameObject(screenWidth, screenHeight, {0, 0}, 80, 12, 0.99, color), // Initialize GameObject base class
+        : GameObject(screenWidth, screenHeight, {0, 0}, 80, 12, 0.98, color), // Initialize GameObject base class
           spawnLocation(spawnLocation) // Initialize derived class members
 {
     Vector2 playerPosition;
