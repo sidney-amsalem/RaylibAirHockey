@@ -43,10 +43,7 @@ void GameObject::setPosition(Vector2 newPosition) {
     position = newPosition;
 }
 
-
-void GameObject::drawObject() const{
-    DrawCircleV(position, radius, color);
+Color const GameObject::getColor() const{
+    return color;
 }
-
-
 

@@ -29,7 +29,7 @@ endif()
 
 # Our Project
 
-add_executable(${PROJECT_NAME} main.cpp GameObject.cpp GameObject.h Player.cpp Player.h Puck.cpp Puck.h)
+add_executable(${PROJECT_NAME} main.cpp GameObject.cpp GameObject.h Player.cpp Player.h Puck.cpp Puck.h GameLogic.cpp GameLogic.h Drawing.cpp Drawing.h)
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
 

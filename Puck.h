@@ -15,6 +15,10 @@ public:
     void update() override;
 
     void reset() override;
+
+    void resetLeft();
+
+    void resetRight();
 };
 
 

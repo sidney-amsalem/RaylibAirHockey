@@ -12,8 +12,9 @@ Player Player::CreateRightPlayer(const int screenWidth, const int screenHeight) 
 }
 
 Player::Player(const int screenWidth, const int screenHeight, const Color color, const SpawnLocation spawnLocation)
-        : GameObject(screenWidth, screenHeight, {0, 0}, 80, 12, 0.98, color), // Initialize GameObject base class
-          spawnLocation(spawnLocation) // Initialize derived class members
+        : GameObject(screenWidth, screenHeight, {0, 0}, 80, 12, 0.97, color), // Initialize GameObject base class
+          spawnLocation(spawnLocation), // Initialize derived class members
+          movementSpeed(0.6)
 {
     Vector2 playerPosition;
 
@@ -29,9 +30,32 @@ Player::Player(const int screenWidth, const int screenHeight, const Color color,
 }
 
 
-void Player::accelerate(Vector2 x){
-    Vector2 newVelocity = Vector2Add(getVelocity(), x);
-    setVelocity(newVelocity);
+void Player::moveLeft(){
+    Vector2 tempVelocity = getVelocity();
+    tempVelocity.x -= movementSpeed;
+
+    setVelocity(tempVelocity);
+}
+
+void Player::moveRight(){
+    Vector2 tempVelocity = getVelocity();
+    tempVelocity.x += movementSpeed;
+
+    setVelocity(tempVelocity);
+}
+
+void Player::moveUp(){
+    Vector2 tempVelocity = getVelocity();
+    tempVelocity.y -= movementSpeed;
+
+    setVelocity(tempVelocity);
+}
+
+void Player::moveDown(){
+    Vector2 tempVelocity = getVelocity();
+    tempVelocity.y += movementSpeed;
+
+    setVelocity(tempVelocity);
 }
 
 void Player::update() {
@@ -86,6 +110,8 @@ void Player::update() {
 
 void Player::reset(){
     Vector2 newPosition;
+    Vector2 newVelocity = {0,0};
+
     if (spawnLocation == LEFT){
         newPosition = (Vector2){(float)screenWidth*0.1f,(float)screenHeight/2};
     }
@@ -93,4 +119,5 @@ void Player::reset(){
         newPosition = (Vector2){(float)screenWidth*0.9f,(float)screenHeight/2};
     }
     setPosition(newPosition);
+    setVelocity(newVelocity);
 }

@@ -51,3 +51,19 @@ void Puck::reset(){
     setPosition(newPosition);
     setVelocity(newVelocity);
 }
+
+void Puck::resetLeft(){
+    Vector2 newPosition = {(float)(screenWidth/3),(float)(screenHeight/2)};
+    Vector2 newVelocity = {0,0};
+
+    setPosition(newPosition);
+    setVelocity(newVelocity);
+}
+
+void Puck::resetRight(){
+    Vector2 newPosition = {(float)(2*screenWidth/3),(float)(screenHeight/2)};
+    Vector2 newVelocity = {0,0};
+
+    setPosition(newPosition);
+    setVelocity(newVelocity);
+}

@@ -39,6 +39,8 @@ public:
 
     const int getRadius() const;
 
+    const Color getColor() const;
+
     const float getFrictionCoefficient() const;
 
     /**
@@ -49,8 +51,6 @@ public:
     void setVelocity(Vector2 newVelocity);
 
     virtual void reset() = 0;
-
-    void drawObject() const;
 
 private:
     Vector2 position;

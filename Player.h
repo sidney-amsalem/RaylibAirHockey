@@ -18,6 +18,14 @@ public:
 
     void accelerate(Vector2 x);
 
+    void moveLeft();
+
+    void moveRight();
+
+    void moveUp();
+
+    void moveDown();
+
     void update() override;
 
     void reset() override;
@@ -32,6 +40,7 @@ private:
     Player(const int screenWidth, const int screenHeight, const Color playerColor, SpawnLocation spawnLocation);
 
     SpawnLocation spawnLocation;
+    const float movementSpeed;
 };
 
 #endif //RAYLIBAIRHOCKEY_PLAYER_H
