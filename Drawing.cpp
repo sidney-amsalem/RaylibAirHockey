@@ -4,6 +4,11 @@
 
 #include "Drawing.h"
 
+Drawing::Drawing(const int screenWidth, const int screenHeight)
+    : screenWidth(screenWidth),
+    screenHeight(screenHeight)
+{}
+
 void Drawing::DrawTime(){
     int seconds = (int) GetTime() % 60;
     int minutes = (int) GetTime() / 60;
@@ -52,4 +57,25 @@ void Drawing::DrawMap(const int screenWidth, const int screenHeight){
             DrawCircle(i, j, 2.0f, GRAY);
         }
     }
+}
+
+void Drawing::DrawPauseScreen(){
+    DrawCenteredText("PAUSED", 3*screenHeight/7, 60, BLACK);
+}
+
+void Drawing::DrawMenuScreen(){
+    ClearBackground(ORANGE);
+    DrawCenteredText("RAYLIB AIR HOCKEY", 2*screenHeight/5, 100, WHITE);
+    DrawCenteredText("press ENTER to begin", 2*screenHeight/5 + 100, 60, WHITE);
+}
+
+void Drawing::DrawTitleScreen(){
+    ClearBackground(BLACK);
+    DrawCenteredText("made by Sidney Amsalem", screenHeight/2 - 50, 60, WHITE);
+}
+
+void Drawing::DrawCenteredText(const char *text, int posY, int fontSize, Color color){
+    int textSize = MeasureText(TextFormat(text), fontSize);
+    int center = (screenWidth/2) - (textSize/2);
+    DrawText(text, center, posY, fontSize, color);
 }

@@ -16,8 +16,6 @@ public:
 
     static Player CreateRightPlayer(const int screenWidth, const int screenHeight);
 
-    void accelerate(Vector2 x);
-
     void moveLeft();
 
     void moveRight();
@@ -40,7 +38,7 @@ private:
     Player(const int screenWidth, const int screenHeight, const Color playerColor, SpawnLocation spawnLocation);
 
     SpawnLocation spawnLocation;
-    const float movementSpeed;
+    float movementSpeed;
 };
 
 #endif //RAYLIBAIRHOCKEY_PLAYER_H

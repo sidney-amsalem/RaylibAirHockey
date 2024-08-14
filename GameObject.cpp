@@ -15,6 +15,35 @@ GameObject::GameObject(const int screenWidth, const int screenHeight, Vector2 po
           color(color)
 {}
 
+// Custom Copy Constructor
+GameObject::GameObject(const GameObject& other)
+        : screenWidth(other.screenWidth),      // Initialize const members
+          screenHeight(other.screenHeight),
+          position(other.position),
+          velocity(other.velocity),
+          radius(other.radius),
+          mass(other.mass),
+          frictionCoefficient(other.frictionCoefficient),
+          color(other.color)
+{}
+
+// Custom Assignment Operator
+GameObject& GameObject::operator=(const GameObject& other) {
+    if (this == &other) return *this;  // Handle self-assignment
+
+    // Since screenWidth and screenHeight are const, they cannot be assigned, only initialized.
+
+    // Assign all other members
+    position = other.position;
+    velocity = other.velocity;
+    radius = other.radius;
+    mass = other.mass;
+    frictionCoefficient = other.frictionCoefficient;
+    color = other.color;
+
+    return *this;
+}
+
 const Vector2 GameObject::getPosition() const{
     return position;
 }

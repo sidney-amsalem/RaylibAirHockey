@@ -11,7 +11,10 @@ GameLogic::GameLogic(const int screenWidth, const int screenHeight)
     goalLeft({0, (float)(screenHeight-170)/2, 30.0f, 170.0f}),
     goalRight({screenWidth-20.0f, (float)(screenHeight-170)/2, 30.0f, 170.0f}),
     scoreLeft(0),
-    scoreRight(0)
+    scoreRight(0),
+    savedPlayer1(player1),
+    savedPlayer2(player2),
+    savedPuck(puck)
 {}
 
 void GameLogic::handleInput(){
@@ -64,10 +67,7 @@ void GameLogic::updateGame() {
         collision(player2, puck);
     }
 
-
     // Check for goals
-
-
 
     // Right player scores goal
     if (CheckCollisionCircleRec(puck.getPosition(), puck.getRadius(), goalLeft)){
@@ -117,6 +117,30 @@ const GameObject& GameLogic::getPlayer2Data() const {
 
 const GameObject& GameLogic::getPuckData() const {
     return puck;
+}
+
+void GameLogic::saveState() {
+    savedPlayer1 = player1;
+    savedPlayer2 = player2;
+    savedPuck = puck;
+}
+
+void GameLogic::restoreState() {
+    player1 = savedPlayer1;
+    player2 = savedPlayer2;
+    puck = savedPuck;
+}
+
+const GameObject& GameLogic::getSavedPlayer1Data() const {
+    return savedPlayer1;
+}
+
+const GameObject& GameLogic::getSavedPlayer2Data() const {
+    return savedPlayer2;
+}
+
+const GameObject& GameLogic::getSavedPuckData() const {
+    return savedPuck;
 }
 
 

@@ -12,6 +12,12 @@ class GameObject {
 protected:
     GameObject(const int screenWidth, const int screenHeight, Vector2 position, const int radius, const int mass, const float frictionCoefficient, const Color color);
 
+    // Copy constructor
+    GameObject(const GameObject& other);
+
+    // Assignment operator
+    GameObject& operator=(const GameObject& other);
+
     /**
      * @brief Sets the GameObject position to a given value
      *
@@ -55,9 +61,9 @@ public:
 private:
     Vector2 position;
     Vector2 velocity;
-    const int radius;
-    const int mass;
-    const float frictionCoefficient;
+    int radius;
+    int mass;
+    float frictionCoefficient;
     Color color;
 };
 

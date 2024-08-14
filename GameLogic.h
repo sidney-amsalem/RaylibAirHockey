@@ -36,6 +36,16 @@ public:
 
     void rightPlayerScores();
 
+    void saveState();
+
+    void restoreState();
+
+    const GameObject& getSavedPuckData() const;
+
+    const GameObject& getSavedPlayer1Data() const;
+
+    const GameObject& getSavedPlayer2Data() const;
+
 
 private:
     Player player1;
@@ -45,6 +55,10 @@ private:
     Rectangle goalRight;
     int scoreLeft;
     int scoreRight;
+
+    Player savedPlayer1;
+    Player savedPlayer2;
+    Puck savedPuck;
 };
 
 
